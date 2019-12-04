@@ -12,17 +12,14 @@ export function authUser(_, args) {
 
     expirationDate.setDate(today.getDate() + 30);
 
-    return {
-      id: 1,
-      value: sign(
-        {
-          id: 1,
-          login: 'admin',
-          exp: expirationDate.getTime() / 1000,
-        },
-        JWT_SECRET
-      ),
-    };
+    return sign(
+      {
+        id: 1,
+        login: 'admin',
+        exp: expirationDate.getTime() / 1000,
+      },
+      JWT_SECRET
+    );
   }
 
   throw new AuthenticationError('invalid_credentials');

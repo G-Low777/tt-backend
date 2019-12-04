@@ -1,12 +1,6 @@
 import { gql } from 'apollo-server-core';
 
 const typeDefs = gql`
-  type Token {
-    "ID токена"
-    id: Int!
-    "Значение токена"
-    value: String!
-  }
   type User {
     "ID пользователя в системе"
     id: Int!
@@ -42,7 +36,7 @@ const typeDefs = gql`
 
   type Mutation {
     "Авторизация, возвращает токен доступа при успешной авторизации"
-    auth("Логин пользователя" login: String!, "Пароль пользователя" password: String!): Token
+    auth("Логин пользователя" login: String!, "Пароль пользователя" password: String!): String
   }
 `;
 
